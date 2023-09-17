@@ -1,0 +1,4 @@
+account_number: "371935018297"
+deployment_role: "terraform-executioner-role"
+default_tags: {}
+environment: dev
