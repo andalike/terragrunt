@@ -15,8 +15,8 @@ generate "provider" {
 
     provider "aws" {
         region = "${local.aws_region}"
-        access_key="accesskey"
-        secret_key="secretkey"
+        access_key="AKIAVFQXBKORPTPYWHMC"
+        secret_key="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"
     }
     EOF    
 }
