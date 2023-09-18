@@ -12,11 +12,8 @@ generate "provider" {
     path = "provider.tf"
     if_exists = "overwrite_terragrunt"
     contents = <<-EOF
-
     provider "aws" {
         region = "${local.aws_region}"
-        access_key="AKIAVFQXBKORKSSU4JPQ"
-        secret_key="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"
     }
     EOF    
 }
