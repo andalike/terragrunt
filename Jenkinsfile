@@ -62,6 +62,8 @@ pipeline {
                         sh "${TOOLS_DIR}/terraform --version"
                     }
 
+                    def terraformDir = "${TOOLS_DIR}" // Adjust this to the actual directory containing Terraform
+                    env.PATH = "${terraformDir}:${env.PATH}"
 
                     // Download and install Terragrunt if not already installed
                     def terragruntInstalled = fileExists("${TOOLS_DIR}/terragrunt")
@@ -113,18 +115,6 @@ pipeline {
             }
         }
 
-        stage('Configure Credentials') {
-            steps {
-                script {
-                    awsAccessKeyId = ""
-                    awsSecretAccessKey = ""
-                    sh "aws configure set aws_access_key_id ${awsAccessKeyId}"
-                    sh "aws configure set aws_secret_access_key ${awsSecretAccessKey}"
-                    sh 'aws s3 ls'
-                }
-            }
-        }
-
          stage('Build Infra') {
             steps {
                 script {
@@ -132,7 +122,6 @@ pipeline {
                     dir(path: 'live/dev/ap-south-1/vpc') {
                     echo 'Present Directory'
                     sh 'pwd'
-                    sh 'aws sts get-caller-identity'
                     sh "${TOOLS_DIR}/terragrunt --version"
                     sh "${TOOLS_DIR}/terraform --version"
                     sh "${TOOLS_DIR}/terragrunt init"
