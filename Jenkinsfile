@@ -62,7 +62,7 @@ pipeline {
                         sh "${TOOLS_DIR}/terraform --version"
                     }
 
-                    def terraformDir = "${TOOLS_DIR}" // Adjust this to the actual directory containing Terraform
+                    def terraformDir = "${TOOLS_DIR}"
                     env.PATH = "${terraformDir}:${env.PATH}"
 
                     // Download and install Terragrunt if not already installed
