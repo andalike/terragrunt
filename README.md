@@ -58,5 +58,9 @@ Ensure the following GitHub settings are in place:
 - Protect sensitive information, such as API tokens and credentials, using Jenkins credential management.
 - Restrict access to Jenkins and ensure it is properly secured.
 
+## Pre-Requisite
+- Create a table inDynamoDB(Primary Key : LockID)
+- Create a S3 Bucket
+
 Please refer to the Jenkins documentation for more information on setting up Jenkins pipelines and integrating with GitHub.
 
